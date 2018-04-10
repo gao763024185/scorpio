@@ -1,0 +1,72 @@
+#set($layout="layout/layout_ad.vm")
+#set( $page_title = "crainnogao后台管理首页")
+<input type="hidden" name="item" id="item" value="$item"/>
+<header>
+    <div class="navbar-fixed">
+        <nav class="index-nav">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="avatar">
+                        <div>
+                            <a href="" >
+                                <img src="/${userAvatar}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div id="nav">
+                    <ul class="left hide-on-med-and-down">
+                        #foreach($list in $listMenu)
+                            #if($!{list.menuType}==1)
+                                <li><a >$!{list.menuName}</a></li>
+                            #end
+                        #end
+                    </ul>
+                    </div>
+                    <ul class="right hide-on-med-and-down">
+                        #foreach($list in $listMenu)
+                            #if($!{list.menuType}==2)
+                                <li><a href=$!{list.menuUrl}>$!{list.menuName}</a></li>
+                            #end
+                        #end
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+</header>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="defaultShow">
+                    #if($item == 1)
+                        #parse("pages/admin/issuedairys.vm")
+                    #elseif($item == 2)
+                        #parse("pages/admin/dairys.vm")
+                    #elseif($item == 3)
+                        #parse("pages/admin/userInfo.vm")
+                    #end
+                </div>
+                <div class="libiao listmenu col-lg-12 issuedairys">
+                    #parse("pages/admin/issuedairys.vm")
+                </div>
+                <div class="libiao listmenu">
+                    #parse("pages/admin/dairys.vm")
+                </div>
+
+                <div class="libiao listmenu">
+                    #parse("pages/admin/userInfo.vm")
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-copyright">
+        <div class="container">
+            <span>Copyright © crainnogao2016</span>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,288 @@
+/*把自己定义的Web字体嵌入到自己的网页*/
+/*@import url(http://fonts.useso.com/css?family=Raleway:200,500,700,800);*/
+@font-face {
+    font-family: 'icomoon';
+    src:url('../fonts/icomoon.eot?rretjt');
+    src:url('../fonts/icomoon.eot?#iefixrretjt') format('embedded-opentype'),
+    url('../fonts/icomoon.woff?rretjt') format('woff'),
+    url('../fonts/icomoon.ttf?rretjt') format('truetype'),
+    url('../fonts/icomoon.svg?rretjt#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+h5,p{
+    line-height: 1.5em!important;
+}
+body {
+    font: normal 12px 'Helvetica Neue', helvetica, arial, sans-serif;
+    /*background: #fcfcfc url(../images/bg/light_grunge.jpg) repeat;*/
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+a {
+    outline: none;
+    text-decoration: none;
+    color:#f1ecec;
+}
+a:hover{
+    text-decoration: none!important;
+}
+.material-icons {
+    color: #3c3c3c;
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+#smoothmenu1{
+    background-color: #f4f5ef;
+    padding: 10px;
+}
+#smoothmenu1 p{
+    font-size: 21px;
+    font-family: Arial;
+    color: #0f0f0f;
+}
+.yinxiang{
+    margin-bottom: 10px;
+}
+ul#tab-menu {
+    font: normal 20px "CardoRegular", serif;
+    list-style: none;
+}
+ul#tab-menu li {
+    border-top: 1px dotted #bbb;
+    cursor: pointer;
+    padding: 10px 15px;
+    margin: 0;
+    color: #6B777C;
+    font-size: 18px;
+}
+ul#tab-menu li.selected {
+    color: #6B777C;
+    background: url(../images/red_ribbon.png) no-repeat 182px -3px;
+}
+ul#tab-menu li:hover {
+    color: #54BBDD;
+}
+/** 左边导航栏 start **/
+.panel-heading{
+    font-size: 1.8em;
+}
+.panel-body{
+    background-color: #f5f5f5 !important;
+    font-size: 1.5em;
+}
+.panel-footer span{
+    /*float: right;*/
+    margin-left: 2.5%;
+}
+.wenben{
+    color: #333;
+    font-family: "KaiTi";
+}
+.panel-footer{
+    padding: 10px 15px 38px 15px!important;
+    font-size: 15px;
+    background-color: rgba(245, 245, 245,0)!important;
+    height: 35px;
+}
+.col-lg-3{
+    height: 100% !important;
+}
+.col-lg-1{
+    height: 100% !important;
+}
+
+.tcdPageCode{padding: 15px 20px;text-align: center;color: #ccc;font-size: 20px;}
+.tcdPageCode a{
+    display: inline-block;
+    color: #428bca;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    /*border: 1px solid #ddd;	*/
+    margin: 0 2px;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+.tcdPageCode a:hover{text-decoration: none;border: 1px solid #428bca;}
+.tcdPageCode span.current {
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    margin: 0 2px;
+    color: #fff;
+    background-color: #428bca;
+    border: 1px solid #428bca;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+.tcdPageCode span.disabled{
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    margin: 0 2px;
+    color: #bfbfbf!important;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+.tcdPageCode .disabled .material-icons{
+    float: left;
+}
+pre{
+    background-color: #211b1b !important;
+    color: #f3f1e7!important;
+}
+
+.navbar-fixed nav{
+    background-color: #f4f5ef;
+}
+.nav-wrapper ul li a{
+    color: black;
+}
+header .container{
+    width: 75% !important;
+}
+main .container{
+    width:77% !important;
+    min-height: 900px;
+}
+main .container .row{
+    width: 100%!important;
+    margin-top: 5em!important;
+}
+
+footer {
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+    height: 100px;
+    background-color: #1b1a1a;
+    text-align: center;
+    font-size: 17px;
+    color: ghostwhite;
+}
+
+.about ul li{
+   padding: 2em;
+}
+
+.panel{
+    /*background-color: #f1f1f1!important;*/
+    /*filter:Alpha(opacity=0);*/
+    /*background-color: rgba(245, 245, 245,0)!important;*/
+    background-color: #f4f5ef!important;
+    margin-bottom: 50px!important;
+}
+#firstshow .firstlog{
+    margin-left: 2.5%;
+    width: 95%;
+    margin-bottom: 2em;
+}
+
+#logshow .contentshow{
+    margin-left: 2.5%;
+    width: 95%;
+    margin-bottom: 2em;
+}
+
+#firstshow blockquote{
+    font-size: 18px;
+}
+
+
+#logshow blockquote{
+    font-size: 26px;
+}
+
+#firstshow .panel-heading .col-lg-4{
+    margin-top: 0.6em;
+    text-align: right;
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+}
+#logshow .panel-heading .col-lg-4{
+    margin-top: 0.6em;
+    text-align: right;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+}
+pre{
+    font-size: 1em!important;
+    line-height: 2em!important;
+}
+
+.col-lg-12 .card{
+    padding: 10px 4px 4px 0px;
+    background-color: #f4f5ef!important;
+}
+.collection .collection-item {
+    background-color: #f4f5ef!important;
+    line-height: 2.5em!important;
+}
+.collection-item a:hover{
+    background-color:red;
+}
+
+span.badgeSelf {
+    min-width: 3rem;
+    padding: 0 6px;
+    margin-left: 14px;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 22px;
+    height: 22px;
+    color: #757575;
+    float: right;
+    box-sizing: border-box;
+}
+
+.avatar {
+    width: 125px;
+    height: 125px;
+    /*float: left;*/
+}
+.avatar div {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    top: 5px;
+}
+.avatar div img {
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,17 @@
+<input type="hidden" id="count" value="$logsCount"/>
+#foreach($log in $logs.getDataList())
+<div class="col-lg-1"></div>
+<div class="col-lg-3"></div>
+<div class="col-lg-8">
+    <div class="board">
+        <div class="panel panel-default wenben">
+            <div class="panel-heading">
+                <strong>$!{log.logTitle}</strong>
+            </div>
+            <div class="panel-body">关键字：$!{log.logSummary}</div>
+            <div  class="contentshow"></div>
+            <input type="hidden" class="logContent" value="$!{log.logContent}"/>
+        </div>
+    </div>
+</div>
+#end

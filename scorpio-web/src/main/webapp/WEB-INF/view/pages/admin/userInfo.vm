@@ -1,0 +1,27 @@
+##<h1 class="h3">用户管理</h1>
+<div class="tab-container">
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>用户ID</th>
+            <th>用户名</th>
+            <th>上次登录时间</th>
+            <th>用户创建时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        #foreach($user in $list)
+        <tr>
+            <input type="hidden" name="uid" id="uid" value="$!{user.uid}"/>
+            <td>$!{user.uid}</td>
+            <td>$!{user.userName}</td>
+            <td>#dateTimeText($!{user.loginTime},'yyyy-MM-dd HH:mm:ss')</td>
+            <td>#dateTimeText($!{user.created},'yyyy-MM-dd HH:mm:ss')</td>
+            <td><a class="edit">编辑</a></td>
+        </tr>
+        #end
+
+        </tbody>
+    </table>
+</div>

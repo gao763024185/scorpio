@@ -1,0 +1,23 @@
+#set($layout="layout/layout.vm")
+#set( $page_title = "detail")
+<main id="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card white darken-2" style="padding: 2em;">
+                    <div class="panel-heading">
+                        <div><strong>$!{logs.logTitle}</strong></div>
+                    </div>
+                    <div class="panel-body">关键字：$!{logs.logSummary}</div>
+                    <div id="detaillog"></div>
+                    <input type="hidden" name="detaillogcontentfir" id="detaillogcontentfir" value="$!{logs.logContent}">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ds-thread" data-thread-key="$!{logs.logId}" data-title="$!{logs.logTitle}" data-url="/detail?logId=$!{logs.logId}"></div>
+            </div>
+        </div>
+</main>

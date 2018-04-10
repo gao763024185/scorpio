@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gao.scorpio.dao.user.BaseUserMapper" >
+  <!--do not modify start-->
+  <resultMap id="BaseResultMap" type="com.gao.scorpio.entity.BaseUser" >
+    <id column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="login_time" property="loginTime" jdbcType="TIMESTAMP" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+    <result column="avatarThumbnail" property="avatarthumbnail" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    uid, user_name, password, login_time, created, avatar, avatarThumbnail
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.gao.scorpio.entity.BaseUserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from base_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from base_user
+    where uid = #{uid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from base_user
+    where uid = #{uid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.gao.scorpio.entity.BaseUserExample" >
+    delete from base_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.gao.scorpio.entity.BaseUser" >
+    insert into base_user (uid, user_name, password,
+      login_time, created)
+    values (#{uid,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{loginTime,jdbcType=TIMESTAMP}, #{created,jdbcType=TIMESTAMP}, #{avatar,jdbcType=VARCHAR},
+      #{avatarthumbnail,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gao.scorpio.entity.BaseUser" >
+    insert into base_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="loginTime != null" >
+        login_time,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+      <if test="avatar != null" >
+        avatar,
+      </if>
+      <if test="avatarthumbnail != null" >
+        avatarThumbnail,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTime != null" >
+        #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="avatar != null" >
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="avatarthumbnail != null" >
+        #{avatarthumbnail,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.gao.scorpio.entity.BaseUserExample" resultType="java.lang.Integer" >
+    select count(*) from base_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update base_user
+    <set >
+      <if test="record.uid != null" >
+        uid = #{record.uid,jdbcType=INTEGER},
+      </if>
+      <if test="record.userName != null" >
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null" >
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loginTime != null" >
+        login_time = #{record.loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.created != null" >
+        created = #{record.created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.avatar != null" >
+        avatar = #{record.avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="record.avatarthumbnail != null" >
+        avatarThumbnail = #{record.avatarthumbnail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update base_user
+    set uid = #{record.uid,jdbcType=INTEGER},
+    user_name = #{record.userName,jdbcType=VARCHAR},
+    password = #{record.password,jdbcType=VARCHAR},
+    login_time = #{record.loginTime,jdbcType=TIMESTAMP},
+    created = #{record.created,jdbcType=TIMESTAMP},
+    avatar = #{record.avatar,jdbcType=VARCHAR},
+    avatarThumbnail = #{record.avatarthumbnail,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gao.scorpio.entity.BaseUser" >
+    update base_user
+    <set >
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTime != null" >
+        login_time = #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="created != null" >
+        created = #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="avatar != null" >
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="avatarthumbnail != null" >
+        avatarThumbnail = #{avatarthumbnail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uid = #{uid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gao.scorpio.entity.BaseUser" >
+    update base_user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      login_time = #{loginTime,jdbcType=TIMESTAMP},
+      created = #{created,jdbcType=TIMESTAMP},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      avatarThumbnail = #{avatarthumbnail,jdbcType=VARCHAR}
+    where uid = #{uid,jdbcType=INTEGER}
+  </update>
+
+  <!--do not modify end-->
+  <!--自定义sql start-->
+  <!--parameterType:输入参数的java类型-->
+  <!--resultType:输出结果的所映射的java类型(单条结果所对应的java类型)-->
+  <!--#{}:表示一个占位符?-->
+  <!--#{id}:id表示输入参数的参数名称-->
+  <!--${}:表示一个sql的连接符 存在sql注入的风险 慎用!!-->
+  <!--${value}:value表示输入参数的参数名称,如果该参数是简单类型,那么${}里面的参数名称必须是value-->
+    <select id="loginValid" parameterType="com.gao.scorpio.entity.BaseUser" resultMap="BaseResultMap">
+        SELECT * FROM base_user
+        WHERE user_name = #{userName,jdbcType=VARCHAR} and
+        password = #{password,jdbcType=VARCHAR}
+    </select>
+  <!--自定义sql end-->
+  <select id="findAll" parameterType="List" resultMap="BaseResultMap">
+    SELECT * FROM base_user;
+  </select>
+</mapper>
