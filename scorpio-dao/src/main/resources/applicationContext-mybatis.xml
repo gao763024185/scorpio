@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns="http://www.springframework.org/schema/beans"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+       		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     
-    <!--上面的xsd最好和当前使用的Spring版本号一致,如果换了Spring版本,这个最好也跟着改-->
 
     <!-- 此文件相当于对dao层进行配置 -->
-    <!-- sqlSessionFactory对象,扫描dao层接口,动态实现dao接口,也就是说不需要daoimpl,sql和参数都写在xml文件里
-    spring和MyBatis整合，不需要mybatis的配置映射文件 -->
+    <context:component-scan base-package="com.gao.scorpio.dao.*"/>
+    <!-- sqlSessionFactory对象,扫描dao层接口,动态实现dao接口,也就是说不需要daoimpl,sql和参数都写在xml文件里spring和MyBatis整合，不需要mybatis的配置映射文件 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <!-- 自动扫描 mapper.xml文件(读取的是编译出来的classes目录下的module目录下的具体模块的mapping目录下的任意xml文件) -->

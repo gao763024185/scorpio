@@ -1,6 +1,5 @@
 package com.gao.scorpio.controller.starter;
 
-import com.gao.scorpio.service.TimerRunService;
 import com.gao.scorpio.service.LogsService;
 import org.springframework.stereotype.Component;
 
@@ -17,13 +16,10 @@ import javax.annotation.Resource;
 public class PlateformStarter {
 
     @Resource
-    private TimerRunService timerRunService;
-    @Resource
     private LogsService logsService;
 
     @PostConstruct
     public void init() {
         logsService.installLogsCount();//启动时载入访问次数
-//        timerRunService.countTimer();//启动保存访问次数的定时器
     }
 }
