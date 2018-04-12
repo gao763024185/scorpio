@@ -1,4 +1,0 @@
-#macro(dateTimeText $value $format $blankValue)
-    #if(!$format)#set($format='yyyy-MM-dd')#end
-    #if($stringUtils.isBlank($value))$!{blankValue}#else$!{dateUtil.format($value,$format)}#end
-#end
