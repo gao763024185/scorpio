@@ -13,30 +13,19 @@
        		http://www.springframework.org/schema/mvc
        		http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-
-    <!--上面的xsd最好和当前使用的Spring版本号一致,如果换了Spring版本,这个最好也跟着改-->
-
     <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
     <context:component-scan base-package="com.gao.scorpio.controller.*"/>
-    <context:component-scan base-package="com.gao.scorpio.service.*,com.gao.scorpio.dao.*"/>
     <aop:aspectj-autoproxy proxy-target-class="true"/>
     <bean id="counterAspect" class="com.gao.scorpio.tools.CounterAspect"/>
     <!-- 配置注解驱动de SpringMVC -->
     <mvc:annotation-driven/>
 
-    <import resource="spring_quartz.xml"/>
     <!--静态资源映射-->
-    <!--
-    http://perfy315.iteye.com/blog/2008763mapping="/js/**"
-    表示当浏览器有静态资源请求的时候，并且请求url路径中带有：/js/，则这个资源跑到webapp目录下的/WEB-INF/statics/js/去找
-    比如我们在 JSP 中引入一个 js 文件：src="${webRoot}/js/jQuery-core/jquery-1.6.1.min.js
-    -->
     <mvc:resources mapping="/css/**" location="/WEB-INF/statics/css/"/>
     <mvc:resources mapping="/js/**" location="/WEB-INF/statics/js/"/>
     <mvc:resources mapping="/images/**" location="/WEB-INF/statics/images/"/>
     <mvc:resources mapping="/editormd/**" location="/WEB-INF/statics/editormd/"/>
     <mvc:resources mapping="/files/**" location="/files/"/>
-    <!--<mvc:resources mapping="/marked/**" location="/WEB-INF/statics/marked/"/>-->
     <!-- velocity 配置start -->
     <!-- 视图模式配置,velocity配置文件-->
     <bean id="velocityConfigurer" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
@@ -59,26 +48,27 @@
     <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
         <property name="toolboxConfigLocation" value="/WEB-INF/toolbox.xml"/> <!--toolbox配置文件路径-->
         <property name="prefix" value="pages/"/> <!-- 视图文件的前缀，即存放的路径 -->
-        <property name="suffix" value=".vm" /> <!-- 视图文件的后缀名 -->
-        <property name="layoutUrl" value="layout/layout.vm" /> <!--指定layout文件-->
+        <property name="suffix" value=".vm"/> <!-- 视图文件的后缀名 -->
+        <property name="layoutUrl" value="layout/layout.vm"/> <!--指定layout文件-->
         <!--<property name="layoutUrl" value="layout/default.vm" /> 指定layout文件-->
-        <property name="contentType" value="text/html;charset=UTF-8" /> <!--指定编码-->
-        <property name="exposeSpringMacroHelpers" value="true" /> <!--是否使用spring对宏定义的支持-->
+        <property name="contentType" value="text/html;charset=UTF-8"/> <!--指定编码-->
+        <property name="exposeSpringMacroHelpers" value="true"/> <!--是否使用spring对宏定义的支持-->
         <property name="layoutKey" value="layout"></property>
-      <!--  <property name="screenContentKey" value="screen_content" />-->
+        <!--  <property name="screenContentKey" value="screen_content" />-->
         <property name="dateToolAttribute">
             <value>dateTool</value> <!--日期函数名称-->
         </property>
         <property name="numberToolAttribute">
             <value>numberTool</value> <!--数字函数名称-->
         </property>
-        <property name="allowRequestOverride" value="true" />
-        <property name="exposeRequestAttributes" value="true" /> <!--是否开放request属性-->
-        <property name="exposeSessionAttributes" value="true" /> <!--是否开放session属性-->
+        <property name="allowRequestOverride" value="true"/>
+        <property name="exposeRequestAttributes" value="true"/> <!--是否开放request属性-->
+        <property name="exposeSessionAttributes" value="true"/> <!--是否开放session属性-->
         <property name="requestContextAttribute" value="rc"/> <!--request属性引用名称-->
 
     </bean>
-        <!-- velocity 配置end -->
+    <!-- velocity 配置end -->
+
     <!-- 对模型视图名称的解析，即在模型视图名称添加前后缀(如果最后一个还是表示文件夹,则最后的斜杠不要漏了) 使用JSP-->
     <!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- -->
     <bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

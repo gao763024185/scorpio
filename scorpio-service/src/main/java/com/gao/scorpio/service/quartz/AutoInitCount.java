@@ -1,12 +1,9 @@
 package com.gao.scorpio.service.quartz;
 
 import com.gao.scorpio.service.TimerRunService;
-import com.gao.scorpio.service.LogsService;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +16,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class AutoInitCount implements Job {
 //    Logger logger = LoggerFactory.getLogger(this.getClass());
-    @Autowired
-    private LogsService logsService;
     @Autowired
     private TimerRunService timerRunService;
 
