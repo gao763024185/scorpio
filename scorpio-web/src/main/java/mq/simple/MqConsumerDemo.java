@@ -1,4 +1,4 @@
-package mq;
+package mq.simple;
 
 import com.rabbitmq.client.*;
 
@@ -12,24 +12,23 @@ import java.util.concurrent.TimeoutException;
  * @version: v1.0
  */
 public class MqConsumerDemo {
+
+    /**
+     * 队列名称
+     */
+    private final static String QUEUE_NAME = "queueDemo2";
+
     public static void main(String[] args) throws IOException, TimeoutException {
 
-        //创建链接工厂
+        //创建连接工厂、创建连接、创建通道与发送端一样
         ConnectionFactory connectionFactory = new ConnectionFactory();
-
-        //默认链接的主机名，RabbitMQ-Server安装在本机
         connectionFactory.setHost("127.0.0.1");
-        //创建链接
         Connection conn = connectionFactory.newConnection();
-        //创建信息通道
         Channel channel = conn.createChannel();
-        //定义Queue名称
-        String queueName = "queueDemo1";
-        //进行信息声明1.队列名2.是否持久化3.是否局限与链接4.不再使用是否删除5.其他的属性
-        channel.queueDeclare(queueName, false, false, false, null);
+        //此处再次声明队列是为了防止消费者先运行此程序，队列不存在时创建队列
+        channel.queueDeclare(QUEUE_NAME, true, false, false, null);
 
-
-        //声明一个消费者，配置好获取消息的方式
+        //声明一个消费者，配置好获取消息的方式（DefaultConsumer替代了3.X版本的QueueingConsumer）
         Consumer consumer = new DefaultConsumer(channel) {
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties,
@@ -39,7 +38,7 @@ public class MqConsumerDemo {
             }
         };
         //接收
-        channel.basicConsume(queueName, true, consumer);
+        channel.basicConsume(QUEUE_NAME, true, consumer);
 
     }
 }
