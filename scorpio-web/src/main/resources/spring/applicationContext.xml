@@ -11,7 +11,8 @@
     <context:property-placeholder location="classpath*:properties/*.properties,classpath*:config.properties"/>
 
     <import resource="spring-mvc.xml"/>
-    <import resource="spring_quartz.xml"/>
+    <!--<import resource="spring_quartz.xml"/>-->
+    <import resource="mq.xml"/>
 
     <import resource="applicationContext-transaction.xml"/>
     <import resource="classpath*:applicationContext-dataSource.xml"/>
