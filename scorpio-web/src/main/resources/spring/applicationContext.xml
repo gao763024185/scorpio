@@ -16,4 +16,5 @@
     <import resource="applicationContext-transaction.xml"/>
     <import resource="classpath*:applicationContext-dataSource.xml"/>
     <import resource="classpath*:applicationContext-mybatis.xml"/>
+    <import resource="dubbo-provider.xml"/>
 </beans>
