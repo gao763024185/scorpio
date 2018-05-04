@@ -56,13 +56,13 @@
     </appender>
 
     <!--将dao里面的日志即sql语句打印到file文件additivity="false"表示记录输出仅仅只会在当前appender里面不会到别的logger里面-->
-    <logger name="com.gao.scorpio.dao" additivity="false">
+    <!--<logger name="com.gao.scorpio.dao" additivity="false">-->
         <!--<appender-ref ref="FILE"/>-->
         <!--<appender-ref ref="ROLLFILE"/>-->
-    </logger>
-    <root level="debug">
+    <!--</logger>-->
+    <root level="DEBUG">
         <appender-ref ref="CONSOLE"/>
-        <appender-ref ref="ROLLFILE"/>
+        <!--<appender-ref ref="ROLLFILE"/>-->
     </root>
     <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/>
 </configuration>
