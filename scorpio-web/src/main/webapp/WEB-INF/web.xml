@@ -115,6 +115,14 @@
         <url-pattern>/druid/*</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ViewStatusMessages</servlet-name>
+        <servlet-class>ch.qos.logback.classic.ViewStatusMessagesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewStatusMessages</servlet-name>
+        <url-pattern>/lbClassicStatus</url-pattern>
+    </servlet-mapping>
 
     <!-- 图片验证码servlet配置start -->
     <servlet>
