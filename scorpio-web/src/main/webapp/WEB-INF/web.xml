@@ -150,4 +150,12 @@
 
     <!-- ############################################ servlet end  ############################################ -->
 
+  <servlet>
+    <servlet-name>menuExporter</servlet-name>
+    <servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>menuExporter</servlet-name>
+    <url-pattern>/remoting/getAllMenuRPC</url-pattern>
+  </servlet-mapping>
 </web-app>
